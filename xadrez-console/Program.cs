@@ -9,19 +9,22 @@ namespace xadrez_console
     {
         static void Main(string[] args)
         {
-            Tabuleiro tab = new Tabuleiro(8, 8);
+            try
+            {
 
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 1));
-            tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 2));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(3, 3));
-            tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(4, 4));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(5, 5));
-            tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(6, 6));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(7, 7));
+                Tabuleiro tab = new Tabuleiro(8, 8);
 
-            Tela.imprimirTabuleiro(tab);
-            Console.ReadLine();
+                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 4));
+                tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
+
+                Tela.imprimirTabuleiro(tab);
+                Console.ReadLine();
+            }
+            catch (TabuleiroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
